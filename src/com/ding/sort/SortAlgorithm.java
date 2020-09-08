@@ -1,4 +1,4 @@
-package com.ding.niuke;
+package com.ding.sort;
 
 public class SortAlgorithm {
 
@@ -31,10 +31,11 @@ public class SortAlgorithm {
     }*/
 
     //选择，时间复杂度为o(n2)，不稳定
-    public static void sort (int[] a) {
-        for (int i=0; i<a.length-1; i++) {
+    public static void sort(int[] a) {
+        System.out.println("选择排序");
+        for (int i = 0; i < a.length - 1; i++) {
             int minIndex = i;
-            for (int j=i+1; j<a.length;j++) {
+            for (int j = i + 1; j < a.length; j++) {
                 if (a[j] < a[minIndex])
                     minIndex = j;
             }
