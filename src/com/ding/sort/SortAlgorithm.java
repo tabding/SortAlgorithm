@@ -31,7 +31,7 @@ public class SortAlgorithm {
     }*/
 
     //选择，时间复杂度为o(n2)，不稳定
-    public static void sort(int[] a) {
+    /*public static void sort(int[] a) {
         System.out.println("选择排序");
         for (int i = 0; i < a.length - 1; i++) {
             int minIndex = i;
@@ -41,7 +41,7 @@ public class SortAlgorithm {
             }
             swap(a, i, minIndex);
         }
-    }
+    }*/
 
     //归并，时间复杂度为o(nlogn)，稳定
 /*    public static void sort (int[] a, int low, int high) {
@@ -118,9 +118,25 @@ public class SortAlgorithm {
     }*/
 
     //希尔排序
+    public static void sort(int[] a) {
+        //希尔排序
+        //step:步长
+        for (int step = a.length / 2; step > 0; step /= 2) {
+            //对一个步长区间进行比较 [step,arr.length)
+            for (int i = step; i < a.length; i++) {
+                int value = a[i];
+                int j;
 
-
-
+                //对步长区间中具体的元素进行比较
+                for (j = i - step; j >= 0 && a[j] > value; j -= step) {
+                    //j为左区间的取值，j+step为右区间与左区间的对应值。
+                    a[j + step] = a[j];
+                }
+                //此时step为一个负数，[j + step]为左区间上的初始交换值
+                a[j + step] = value;
+            }
+        }
+    }
 
     //交换方法
     public static void swap(int[] a, int i, int j) {
@@ -128,4 +144,5 @@ public class SortAlgorithm {
         a[i] = a[j];
         a[j] = temp;
     }
+
 }
