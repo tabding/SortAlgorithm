@@ -51,8 +51,6 @@ public class SortAlgorithm {
             sort(a, mid+1, high);
             merge(a, low, mid, high);
         }
-
-
     }
     public static void merge (int[] a, int low, int mid, int high) {
         int[] temp = new int[high-low+1];
